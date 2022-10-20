@@ -106,12 +106,79 @@ li:focus {
 }
 .counterSection h1 {
   font-size: 4rem;
-  color: #222;
+  color: #FF8787;
 }
 .counterSection .counterBtns {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.reviewSection {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.reviewSection .reviewHeading h1 {
+  font-size: 2rem;
+}
+.reviewSection .reviewHeading h1::after {
+  content: "";
+  display: block;
+  border-bottom: 0.3rem solid #F8C4B4;
+  width: 65%;
+  float: right;
+}
+.reviewSection .reviewBox {
+  height: auto;
+  width: 80%;
+  min-width: 20rem;
+  padding: 2rem;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.reviewSection .reviewBox #personImg {
+  height: 10rem;
+  width: 10rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+}
+.reviewSection .reviewBox #personName {
+  font-size: 1.2rem;
+  color: #fa5d5d;
+}
+.reviewSection .reviewBox #personProfession {
+  font-size: 1rem;
+  color: #FF8787;
+}
+.reviewSection .reviewBox #reviewText {
+  min-width: 15rem;
+  max-width: 80%;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #555555;
+}
+.reviewSection .reviewBox .reviewBtnContainer {
+  display: flex;
+  gap: 1rem;
+}
+.reviewSection .reviewBox .reviewBtnContainer .btn {
+  font-size: 2rem;
+  min-width: 3rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {

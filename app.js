@@ -112,3 +112,78 @@ counterBtns.forEach(btn => {
         })
 });
 
+
+// review section ========================================
+
+
+// data array 
+const review = [
+    {
+        id:1,
+        name: "Alamgir Hussain",
+        img: "image/personImage/person1.jpg",
+        Profession: "Computer Engineer",
+        reviewText: "laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum",
+    },
+    {
+        id:2,
+        name: "Ashiqul",
+        img: "image/personImage/person2.jpg",
+        Profession: "Civil Engineer",
+        reviewText: "id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam",
+    },
+    {
+        id:3,
+        name: "Ridoy Hussain",
+        img: "image/personImage/person3.jpg",
+        Profession: "Electrical Engineer",
+        reviewText: "nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu",
+    },
+    {
+        id:4,
+        name: "Nirob Hussain",
+        img: "image/personImage/person4.jpg",
+        Profession: "Mechanical Engineer",
+        reviewText: "est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius",
+    }
+]
+
+// select element 
+ const personName = document.getElementById('personName');
+ const personImg = document.getElementById('personImg');
+ const personProfession = document.getElementById('personProfession');
+ const reviewText = document.getElementById('reviewText');
+
+ const reviewPrevNextBtn = document.querySelectorAll('.reviewBtnContainer .btn');
+//  const reviewPrevBtn = document.querySelector('.reviewPrevBtn');
+//  const reviewNextBtn = document.querySelector('.reviewNextBtn');
+// initial review 
+ let currentReview = 0;
+
+function reviewData(){
+    personName.textContent = review[currentReview].name;
+    personImg.src = review[currentReview].img;
+    personProfession.textContent = review[currentReview].Profession;
+    reviewText.textContent = review[currentReview].reviewText;
+}
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    reviewData();
+})
+
+
+
+reviewPrevNextBtn.forEach(btn => {
+    btn.addEventListener('click', (e)=>{
+        if(e.currentTarget.classList.contains('reviewNextBtn')){
+            currentReview++;
+            if(currentReview > review.length - 1) currentReview = 0;
+        }
+        if(e.currentTarget.classList.contains('reviewPrevBtn')){
+            currentReview--;
+            if(currentReview < 0) currentReview = review.length-1;
+        }
+        
+        reviewData();
+    })
+});

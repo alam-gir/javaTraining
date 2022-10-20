@@ -145,6 +145,14 @@ const review = [
         img: "image/personImage/person4.jpg",
         Profession: "Mechanical Engineer",
         reviewText: "est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius",
+    },
+
+    {
+        id:5,
+        name: "Shaykat Rayhan",
+        img: "image/personImage/person2.jpg",
+        Profession: "Civil Engineer",
+        reviewText: "est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius",
     }
 ]
 
@@ -187,3 +195,7 @@ reviewPrevNextBtn.forEach(btn => {
         reviewData();
     })
 });
+
+
+// question colapes section 
+

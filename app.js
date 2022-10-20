@@ -47,9 +47,10 @@ navList.forEach(li => {
         if(e.currentTarget.classList.contains('simpleColor')){
             simpleColorPage.style.color = "#FF0000";
             hexColorPage.style.color = "#FF8787";
-            colorHeading.textContent = "The Simple Color Name Is : ";
+            
 
             colorChangeBtn.addEventListener('click', ()=>{
+                colorHeading.textContent = "The Simple Color Name Is : ";
                 simpleColorChange();
             })
 
@@ -57,10 +58,11 @@ navList.forEach(li => {
         if(e.currentTarget.classList.contains('hexColor')){
             e.currentTarget.style.color = "#FF0000";
             simpleColorPage.style.color = "#FF8787";
-            colorHeading.textContent = "The Hex Color Code Is : ";
+            
 
 
             colorChangeBtn.addEventListener('click', ()=>{
+                colorHeading.textContent = "The Hex Color Code Is : ";
                 let hexColorCode = "#";
                 for(let i = 0; i<6; i++){
                     hexColorCode += hexColors[getRandomNumberForHexColor()];

@@ -79,6 +79,36 @@ navList.forEach(li => {
 
 
 // ================= script for counter project =====================
+// initialize coun
+let count = 0;
 
+// select element 
 
+const counterHeading = document.querySelector('.counterHeading');
+const counter = document.querySelector('.counter');
+const counterBtns = document.querySelectorAll('.counterBtns .btn');
+
+// text content 
+
+counterHeading.textContent = 'Counter';
+counter.textContent = '0';
+
+// functions 
+
+counterBtns.forEach(btn => {
+        btn.addEventListener('click', (e)=>{
+            // count setup 
+
+            if(e.currentTarget.classList.contains('decrease')) count--;
+            if(e.currentTarget.classList.contains('increase')) count++;
+            if(e.currentTarget.classList.contains('reset')) count=0;
+
+            // countText color 
+            if( count > 0 ){ counter.style.color = 'green';}
+            if( count < 0 ) {counter.style.color = 'red';}
+            if( count == 0 ) {counter.style.color = '#333333';}
+
+            counter.textContent = count;
+        })
+});
 

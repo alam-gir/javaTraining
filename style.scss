@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 
@@ -41,7 +42,7 @@ li{
     color: white;
     border: none;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 600;
     font-family: sans-serif;
     margin-top: 2rem;
     cursor: pointer;
@@ -94,6 +95,34 @@ li{
     }
 }
 
+
+// counter section ===================================
+
+.counterSection{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    flex-direction: column;
+    h1{
+        font-size: 4rem;
+        color: #222;
+
+    }
+    .counterBtns{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+
+
+
+// media queries =====================================
 
 @media only screen and (max-width:600px) {
     .colorNameBox{

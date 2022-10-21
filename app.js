@@ -197,5 +197,32 @@ reviewPrevNextBtn.forEach(btn => {
 });
 
 
-// question colapes section 
+// question collapes section 
+//  traversing the hole dom 
 
+// select element 
+// const questionBtn = document.querySelectorAll('.questionBtn');
+
+// questionBtn.forEach(btn=>{
+//     btn.addEventListener('click',(e)=>{
+//         e.currentTarget.parentElement.parentElement.parentElement.classList.toggle('showAnswere');
+//     })
+// })
+
+// selecting by element inner 
+const questionContainer = document.querySelectorAll('.questionContainer');
+
+questionContainer.forEach(question=>{
+    const questionBtn = question.querySelector('.questionBtn');
+    
+    questionBtn.addEventListener('click', ()=>{
+
+        questionContainer.forEach(item =>{
+            if(item !== question){
+                item.classList.remove('showAnswere');
+            }
+        })
+
+        question.classList.toggle('showAnswere');
+    })
+})

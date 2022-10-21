@@ -144,6 +144,7 @@ li{
     .reviewBox{
         height: auto;
         width: 80%;
+        max-width: 60rem;
         min-width: 20rem;
         padding: 2rem;
         background-color: rgb(250, 250, 250);
@@ -204,13 +205,17 @@ li{
     gap: 1rem;
     transition: .3s;
     .questionSectionHeading{
+        width: 80%;
+        max-width: 60rem;
         font-size: 1.5rem;
+        text-align: center;
         color: #FF8787;
         margin: 3rem auto;
     }
     .questionContainer{
         height: auto;
         width: 80%;
+        max-width: 60rem;
         padding: 1rem 2rem;
         border-radius: 1rem;
         background-color: rgba(250,250,250,250);
@@ -218,6 +223,7 @@ li{
         .questionBox{
             display: flex;
             justify-content: space-between;
+            gap: 1rem;
             .question{
                 color: #222222;
                 font-size: 1.5rem;

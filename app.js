@@ -226,3 +226,174 @@ questionContainer.forEach(question=>{
         question.classList.toggle('showAnswere');
     })
 })
+
+
+
+// menu item Section =====================================
+
+// menu data array 
+
+const menu = [
+    {
+        id:1,
+        name: "Chicken Steak",
+        category: "lunch",
+        price: 53,
+        img:"image/food-image/lunch1.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:2,
+        name: "beef Steak",
+        category: "breakfast",
+        price: 16,
+        img:"image/food-image/breakfast1.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:3,
+        name: "mutton Steak",
+        category: "breakfast",
+        price: 26,
+        img:"image/food-image/breakfast2.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:4,
+        name: "mutton curry",
+        category: "shakes",
+        price: 26,
+        img:"image/food-image/shakes1.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:5,
+        name: "orange cake shakes",
+        category: "shakes",
+        price: 64,
+        img:"image/food-image/shakes2.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:6,
+        name: "ciken rice",
+        category: "lunch",
+        price: 34,
+        img:"image/food-image/lunch3.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+       },
+
+    {
+        id:7,
+        name: "chocolate shake",
+        category: "shakes",
+        price: 7,
+        img:"image/food-image/shakes3.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:8,
+        name: "chicken rice",
+        category: "diner",
+        price: 23,
+        img:"image/food-image/lunch1.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:9,
+        name: "mutton khacci",
+        category: "diner",
+        price: 65,
+        img:"image/food-image/breakfast4.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:10,
+        name: "beef kacci",
+        category: "diner",
+        price: 34,
+        img:"image/food-image/lunch3.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+
+    {
+        id:11,
+        name: "special beef kacci",
+        category: "diner",
+        price: 24,
+        img:"image/food-image/breakfast4.jpeg",
+        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    }
+]
+
+// selector 
+
+const menuContainer = document.querySelector('.menu-card-container');
+const menuBtns = document.querySelectorAll('.filter-btn')
+
+
+// DOM content Loaded Event 
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    displyMenu(menu);
+})
+
+
+menuBtns.forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+        const category = e.currentTarget.dataset.id;
+        const menuCategory = menu.filter((menuItem)=>{
+            if(menuItem.category === category){
+                return menuItem;
+            }
+        })
+        if(category === 'all'){
+            displyMenu(menu);
+        }
+        else{
+            displyMenu(menuCategory);
+        }
+        
+        // button active class 
+        if(category == category){
+            menuBtns.forEach(btn => {
+                btn.classList.remove('active-btn');
+            });
+           e.currentTarget.classList.add('active-btn');
+        }
+        
+    })
+})
+
+
+// menu Element function 
+function displyMenu(menuItem){
+
+    let menuCard = menuItem.map(item=>{
+
+        return `<div class="menu-card">
+        <div class="food-img-section"><img src=${item.img} class="food-img" alt="foodimg"></div>
+        <div class="food-info">
+            <div class="food-info-heading">
+                <h2 class="food-name">${item.name}</h2>
+                <h2 class="food-price">$${item.price}</h2>
+            </div>
+            <div class="food-description-section">
+                <p class="food-description">${item.description}</p>
+            </div>
+
+        </div>
+    </div>`;
+    });
+
+    menuCard = menuCard.join("");
+    menuContainer.innerHTML = menuCard;
+}

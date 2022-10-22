@@ -337,41 +337,21 @@ const menu = [
 // selector 
 
 const menuContainer = document.querySelector('.menu-card-container');
-const menuBtns = document.querySelectorAll('.filter-btn')
+
+const menuBtnsContainer = document.querySelector('.menu-filter-btn-container');
 
 
 // DOM content Loaded Event 
 
 window.addEventListener('DOMContentLoaded', ()=>{
+    
     displyMenu(menu);
+    displyMenuBtns();
+
 })
 
 
-menuBtns.forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
-        const category = e.currentTarget.dataset.id;
-        const menuCategory = menu.filter((menuItem)=>{
-            if(menuItem.category === category){
-                return menuItem;
-            }
-        })
-        if(category === 'all'){
-            displyMenu(menu);
-        }
-        else{
-            displyMenu(menuCategory);
-        }
-        
-        // button active class 
-        if(category == category){
-            menuBtns.forEach(btn => {
-                btn.classList.remove('active-btn');
-            });
-           e.currentTarget.classList.add('active-btn');
-        }
-        
-    })
-})
+
 
 
 // menu Element function 
@@ -396,4 +376,54 @@ function displyMenu(menuItem){
 
     menuCard = menuCard.join("");
     menuContainer.innerHTML = menuCard;
+}
+
+
+ // category button  function
+function displyMenuBtns(){
+   
+    const categories = menu.reduce((values, item)=>{
+        if(!values.includes(item.category)){
+            values.push(item.category);
+        }
+        return values;
+    },["all"]);
+    
+    let categoryBtns = categories.map(item=>{
+        return `<button class="filter-btn btn" data-id="${item}">${item}</button>`;
+    }).join("");
+    
+    menuBtnsContainer.innerHTML = categoryBtns;
+    
+    // menu btn select after DOM content loaded ***
+    const menuBtns = document.querySelectorAll('.filter-btn');
+    
+    menuBtns.forEach(btn=>{
+        console.log(btn);
+        btn.addEventListener('click', (e)=>{
+            const category = e.currentTarget.dataset.id;
+            const menuCategory = menu.filter((menuItem)=>{
+                if(menuItem.category === category){
+                    return menuItem;
+                }
+            })
+            if(category === 'all'){
+                displyMenu(menu);
+            }
+            else{
+                displyMenu(menuCategory);
+            }
+            
+            // button active class 
+            
+            if(category == category){
+                menuBtns.forEach(btn => {
+                    btn.classList.remove('active-btn');
+                });
+               e.currentTarget.classList.add('active-btn');
+            }
+        }) 
+    })
+   
+    
 }

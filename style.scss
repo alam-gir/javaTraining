@@ -39,30 +39,35 @@
         transform: translate(-50%,-50%);
     }
     .video-btn-container{
+        height: 3rem;
+        width: 10rem;
         position: absolute;
         bottom: 2rem;
         left: 2rem;
         background-color: #fff;
         border-radius: .5rem;
-        
-        .video-btn{
-            height: auto;
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+        align-items: center;
+        outline: 2px solid #fa5d5d;
+        span{
+            height: 3rem;
+            line-height: 3rem;
             width: 5rem;
-            padding: .5rem;
+            text-align: center;
             font-size: 1rem;
             font-weight: 600;
-            background: none;
-            outline: none;
-            border: none;
+            color: #555555;
         }
-        .video-switch{
-            height: 2.125rem;
-            width: 5.2rem;
-            background-color: #fa5d5d;
-            display: block;
+        .btn-switch{
             position: absolute;
             top: 0;
-            border-radius: .5rem;
+            background-color: #fa5d5d;
+            
+        }
+        .btn-switch-slider{
+            left: 50%;
         }
         
     }

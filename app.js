@@ -1,25 +1,22 @@
 // ==================script for background video project =================
 
 // querySelector
-const videoPlayBtn = document.querySelectorAll('.video-btn-container .video-btn');
-const backgroundVideo = document.querySelector('.video-container');
-const videoSwitch = document.querySelector('.video-switch');
-videoPlayBtn.forEach(btn=>{
+const videoBtn = document.querySelectorAll('.video-btn');
+const btnSwitch = document.querySelector('.btn-switch');
+const bgVideo = document.querySelector('.video-container');
+
+videoBtn.forEach(btn => {
     btn.addEventListener('click', e=>{
-        let currentBtn = e.currentTarget;
-        if(currentBtn.classList.contains('pause')){
-            backgroundVideo.pause();
-            videoSwitch.style.right = '0';
-            videoSwitch.style.left = '';
-            
+        if(e.currentTarget.classList.contains('pause')){
+            btnSwitch.classList.add('btn-switch-slider');
+            bgVideo.pause();
         }
-        if(currentBtn.classList.contains('play')){
-            backgroundVideo.play();
-            videoSwitch.style.left = '0';
-            videoSwitch.style.right = '';
+        else{
+            btnSwitch.classList.remove('btn-switch-slider');
+            bgVideo.play();
         }
     })
-})
+});
 
 
 

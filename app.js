@@ -1,3 +1,14 @@
+
+
+// ===================preloader scripting ==========================
+
+const preload = document.querySelector('.preload');
+
+window.addEventListener('load', ()=>{
+    preload.style.display = 'none';
+})
+
+
 // ==================script for background video project =================
 
 // querySelector

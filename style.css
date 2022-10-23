@@ -5,6 +5,17 @@
   font-family: sans-serif;
 }
 
+.preload {
+  height: 100vh;
+  width: 100%;
+  background-color: #f1f2f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+}
+
 .background-video-section {
   height: 100vh;
   width: 100%;

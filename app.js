@@ -1,3 +1,28 @@
+// ==================script for background video project =================
+
+// querySelector
+const videoPlayBtn = document.querySelectorAll('.video-btn-container .video-btn');
+const backgroundVideo = document.querySelector('.video-container');
+const videoSwitch = document.querySelector('.video-switch');
+videoPlayBtn.forEach(btn=>{
+    btn.addEventListener('click', e=>{
+        let currentBtn = e.currentTarget;
+        if(currentBtn.classList.contains('pause')){
+            backgroundVideo.pause();
+            videoSwitch.style.right = '0';
+            videoSwitch.style.left = '';
+            
+        }
+        if(currentBtn.classList.contains('play')){
+            backgroundVideo.play();
+            videoSwitch.style.left = '0';
+            videoSwitch.style.right = '';
+        }
+    })
+})
+
+
+
 // =================script for color changer project =====================
 
 
@@ -399,7 +424,6 @@ function displyMenuBtns(){
     const menuBtns = document.querySelectorAll('.filter-btn');
     
     menuBtns.forEach(btn=>{
-        console.log(btn);
         btn.addEventListener('click', (e)=>{
             const category = e.currentTarget.dataset.id;
             const menuCategory = menu.filter((menuItem)=>{
